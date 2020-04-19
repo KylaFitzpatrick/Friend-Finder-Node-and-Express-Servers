@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FirendFinder</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
         <hr>
         <h2>Question 1</h2>
         <h4>You enjoy talking to people with different views from your own.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q1" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -30,7 +32,7 @@
         </select>
         <h2>Question 2</h2>
         <h4>Generally speaking, you would rather be outdoors.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q2" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -40,7 +42,7 @@
         </select>
         <h2>Question 3</h2>
         <h4>You find it easy to be by yourself.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q3" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -50,7 +52,7 @@
         </select>
         <h2>Question 4</h2>
         <h4>You always look for adventure.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q4" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -60,7 +62,7 @@
         </select>
         <h2>Question 5</h2>
         <h4>People make you happy.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q5" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -70,7 +72,7 @@
         </select>
         <h2>Question 6</h2>
         <h4>You can relate to other people easily.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q6" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -80,7 +82,7 @@
         </select>
         <h2>Question 7</h2>
         <h4>Telling the truth is important to you.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q7" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -90,7 +92,7 @@
         </select>
         <h2>Question 8</h2>
         <h4>You think about the future often.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q8" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -100,7 +102,7 @@
         </select>
         <h2>Question 9</h2>
         <h4>You think everyone's opinion matters.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q9" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -110,7 +112,7 @@
         </select>
         <h2>Question 10</h2>
         <h4>You enjoy being in large crowds.</h4>
-        <select class="custom-select" required>
+        <select class="custom-select" id="q10" required>
             <option value="">Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -120,13 +122,85 @@
         </select>
         <br>
         <br>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" id="submit" type="submit">Submit</button>
         <br>
         <br>
-        <footer><a href="/">API Friend List</a> |
-            <a href="/frameworks">Github repo</a></footer>
+        <footer><a href="/api/friends">API Friend List</a> |
+            <a href="/https://github.com/KylaFitzpatrick/Friend-Finder-Node-and-Express-Servers">Github repo</a>
+        </footer>
     </div>
 
-</body>
 
+<div id="modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Friend Match</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h5 class="friend-match"></h5>
+            <img class="friend-image" src="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+            
+    
+    function validateUser() {
+        var isValid = true;
+        if ($(".form-control").val() === "") {
+            isValid = false;
+        }
+        // console.log($(".form-control").val())
+        if ($(".custom-select").val() === "") {
+            isValid = false;
+        }
+        return isValid
+    }
+    if (validateUser()) {
+        var dataUser = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+      
+        $.post("/api/friends", dataUser, function(data) {
+            // console.log("survey.html", data);
+            // If a survey has data... tell user they are matched.
+	    	
+                $(".friend-match").text(data.name)
+                $(".friend-image").src(data.photo)
+                $("#modal").modal("toggle")
+            });
+        }else{
+                alert("Please fill out survey")
+            }
+        })
+	    	// Clear the form when submitting
+    		
+        
+    
+</script>
+</body>
 </html>
