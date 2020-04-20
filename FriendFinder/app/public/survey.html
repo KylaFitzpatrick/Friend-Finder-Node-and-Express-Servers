@@ -190,7 +190,8 @@
                 $("#q10").val()
             ]
         };
-      
+      console.log(dataUser)
+
         $.post("/api/friends", dataUser, function(data) {
             // console.log("survey.html", data);
             // If a survey has data... tell user they are matched.
