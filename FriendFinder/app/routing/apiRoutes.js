@@ -1,23 +1,17 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var path = require("path");
+var friendsData = require("../data/friend.js")
 
-// Sets up the Express App
-// =============================================================
-var app = express();
-// var PORT = process.env.PORT || 3000;
+// // Sets up the Express App
+// // =============================================================
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // Routes
 // =============================================================
-
+module.exports = function(app){
 // Displays all Friends
 app.get("/api/friends", function(req, res) {
-  return res.json(friends);
+  res.json(friendsData);
 });
 
 // Displays a single friend, or returns false
@@ -26,9 +20,9 @@ app.get("/api/friends/:friend", function(req, res) {
 
   console.log(chosen);
 
-  for (var i = 0; i < friends.length; i++) {
-    if (chosen === friends[i].routeName) {
-      return res.json(friends[i]);
+  for (var i = 0; i < friendData.length; i++) {
+    if (chosen === friendsData[i].routeName) {
+      return res.json(friendsData[i]);
     }
   }
 
@@ -47,13 +41,9 @@ app.post("/api/friends", function(req, res) {
 
   console.log(newFriend);
 
-  firends.push(newFriend);
+  friendsData.push(newFriend);
 
   res.json(newFriend);
 });
+}
 
-// Starts the server to begin listening
-// =============================================================
-// app.listen(PORT, function() {
-//   console.log("App listening on PORT " + PORT);
-// });

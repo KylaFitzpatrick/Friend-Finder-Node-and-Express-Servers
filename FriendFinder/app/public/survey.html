@@ -133,7 +133,7 @@
     </div>
 
 
-<div id="modal" class="modal" tabindex="-1" role="dialog">
+<div id="modal-results" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -143,8 +143,8 @@
           </button>
         </div>
         <div class="modal-body">
-            <h5 class="friend-match"></h5>
-            <img class="friend-image" src="">
+            <h5 id="friend-match"></h5>
+            <img id="friend-image" src="https://dogtime.com/assets/uploads/2018/10/puppies-cover-1280x720.jpg" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -160,13 +160,17 @@
     
     function validateUser() {
         var isValid = true;
-        if ($(".form-control").val() === "") {
+        $(".form-control").each(function(){
+            if ($(this).val() === "") {
             isValid = false;
         }
-        // console.log($(".form-control").val())
-        if ($(".custom-select").val() === "") {
+        });
+       
+        $(".custom-select").each(function(){
+        if ($(this).val() === "") {
             isValid = false;
         }
+    });
         return isValid
     }
     if (validateUser()) {
@@ -191,14 +195,14 @@
             // console.log("survey.html", data);
             // If a survey has data... tell user they are matched.
 	    	
-                $(".friend-match").text(data.name)
-                $(".friend-image").src(data.photo)
-                $("#modal").modal("toggle")
+                $("#friend-match").text(data.name)
+                $("#friend-image").attr("src", data.photo)
+                $("#modal-results").modal("toggle")
             });
         }else{
                 alert("Please fill out survey")
             }
-        })
+        });
 	    	// Clear the form when submitting
     		
         
