@@ -42,12 +42,13 @@ app.post("/api/friends", function(req, res) {
 //convert scores to int
 //match friends based on closest scores
 //loop through score and find score with the smallest difference
-var totalDifference = 0
+// var totalDifference = 0
 //for loop for friends array
 for(var i = 0; i < friendsData.length; i++){
+    var totalDifference = 0
     for(var j = 0; j < friendsData[i].scores.length; j++){
         req.body.scores[j] = parseInt(req.body.scores[j])
-        totalDifference = totalDifference + Math.abs((friendsData[i].scores[j] - req.body.scores[j]))
+        totalDifference += Math.abs((friendsData[i].scores[j] - req.body.scores[j]))
     }
     friendsData[i].totalDifference = totalDifference
 }

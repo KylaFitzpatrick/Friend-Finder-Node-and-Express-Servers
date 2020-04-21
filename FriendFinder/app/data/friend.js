@@ -4,7 +4,7 @@
 var friends = [
     {
         "name": "Maggie",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://images.pexels.com/photos/2146042/pexels-photo-2146042.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=260",
         "scores": [
             5,
             1,
@@ -21,7 +21,7 @@ var friends = [
     },
     {
         "name": "Jackie",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://images.pexels.com/photos/4066041/pexels-photo-4066041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=250&w=360",
         "scores": [
             2,
             1,
@@ -38,7 +38,7 @@ var friends = [
     },
     {
         "name": "Jenny",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://images.pexels.com/photos/1719641/pexels-photo-1719641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=250&w=360",
         "scores": [
             3,
             1,
@@ -55,7 +55,7 @@ var friends = [
     },
     {
         "name": "Sara",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://images.pexels.com/photos/4005801/pexels-photo-4005801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=260",
         "scores": [
             2,
             1,
