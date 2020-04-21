@@ -13,7 +13,9 @@ module.exports = function(app){
 app.get("/api/friends", function(req, res) {
   res.json(friendsData);
 });
-
+app.get("https://github.com/KylaFitzpatrick/Friend-Finder-Node-and-Express-Servers", function(req, res) {
+    res.json();
+  });
 // Displays a single friend, or returns false
 app.get("/api/friends/:friend", function(req, res) {
   var chosen = req.params.friendData;
