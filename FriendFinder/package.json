@@ -4,8 +4,7 @@
   "description": "Helps you find a friend match",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.16.3"
+    "express": "^4.17.1"
   },
   "scripts": {
     "start": "node server.js"
