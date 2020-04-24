@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Helps you find a friend match",
   "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
-  
 }
