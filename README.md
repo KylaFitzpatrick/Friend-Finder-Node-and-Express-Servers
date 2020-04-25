@@ -23,6 +23,7 @@ Run steps 1-4 to play the Friend Finder app:
 
 ### Contain a link to a deployed version of the app
 
+Deployed: https://mighty-oasis-51043.herokuapp.com/
 Repository: https://github.com/KylaFitzpatrick/Friend-Finder-Node-and-Express-Servers
 
 ### Clearly list the technologies used in the app
